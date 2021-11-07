@@ -44,8 +44,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setToken(response.data.acessToken);
         localStorage.setItem("token", response.data.acessToken);
         localStorage.setItem("userId", response.data.user.id);
-        console.log("Login efetuado");
-        console.log(response);
 
         setAuth(true);
         history.push("/");
@@ -58,7 +56,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     api
       .post("/signup", obj)
       .then((response) => {
-        console.log(response);
         history.push("/login");
       })
       .catch((error) => console.log(error));
